@@ -1190,38 +1190,29 @@ footer {
   margin-top: 3rem;
 }
 
-/* Campfire Container */
 .footer-campfire {
   position: relative;
   display: inline-block;
-  margin-bottom: 1.5rem;
 }
 
-/* Logs Stack - Multiple logs */
 .footer-campfire::before {
-  content: "🪵";
+  content: "🟫";
   position: absolute;
   bottom: -10px;
   left: 50%;
-  transform: translateX(-50%) rotate(-15deg);
-  font-size: 2rem;
-  opacity: 0.8;
-  filter: grayscale(0.3) brightness(0.7);
+  transform: translateX(-50%) rotate(-15deg) scaleX(150%) scaleY(63%);
+  font-size: 2.1rem;
 }
-
 .footer-campfire::after {
-  content: "🪵";
+  content: "🟫";
   position: absolute;
   bottom: -8px;
   left: 50%;
-  transform: translateX(-50%) rotate(10deg);
-  font-size: 2rem;
-  opacity: 0.7;
-  filter: grayscale(0.3) brightness(0.6);
-  z-index: -1;
+  transform: translateX(-50%) rotate(10deg) scaleX(150%) scaleY(63%);
+  font-size: 2.1rem;
 }
 
-/* Fire Emoji - Container */
+/* Fire */
 .footer-campfire .fire {
   position: relative;
   font-size: 3rem;
@@ -1234,7 +1225,7 @@ footer {
   display: block;
   animation: fireFlicker 1s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 25px rgba(255, 127, 63, 0.6))
-    drop-shadow(0 0 50px rgba(255, 107, 53, 0.4));
+          drop-shadow(0 0 50px rgba(255, 107, 53, 0.4));
 }
 
 /* Extra logs behind */
@@ -1248,7 +1239,7 @@ footer {
 }
 
 .footer-campfire .logs::before {
-  content: "🪵";
+  content: "🪵"; /* FIXED */
   position: absolute;
   left: -35px;
   transform: rotate(-25deg);
