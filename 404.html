@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page non trouvée | PeakDLE</title>
+    <link rel="icon" href="images/PEAK_logo.jpg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .error-page {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .error-code {
+        font-size: 8rem;
+        font-weight: bold;
+        color: #ff6b35;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .error-message {
+        font-size: 1.5rem;
+        margin: 20px 0;
+        color: #e0e0e0;
+      }
+      .error-description {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        color: #999;
+      }
+      .home-btn {
+        display: inline-block;
+        padding: 15px 40px;
+        background: #ff6b35;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+      }
+      .home-btn:hover {
+        background: #ff8555;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container error-page">
+      <div class="error-code">404</div>
+      <h1 class="error-message">🏔️ Oups ! Vous êtes hors-piste !</h1>
+      <p class="error-description">
+        La page que vous recherchez n'existe pas ou a été déplacée.
+      </p>
+      <a href="index.html" class="home-btn">← Retour au camp de base</a>
+    </div>
+
+    <footer>
+      <div class="footer-campfire">
+        <div class="logs"></div>
+        <div class="fire"></div>
+        <div class="footer-sparks">
+          <div class="spark"></div>
+          <div class="spark"></div>
+          <div class="spark"></div>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <p>Ready for the next ascent? 🧗</p>
+        <div class="footer-badge">
+          <span>⛺</span>
+          Made with ❤️ for adventurous climbers
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
