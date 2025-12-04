@@ -174,9 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ============================================
   // GAME LOGIC (Placeholder)
   // ============================================
-
-  console.log("🏄 Peakdle loaded successfully!");
-  console.log("Ready to climb!");
 });
 
 // Fonction pour créer des confettis de victoire
@@ -338,6 +335,7 @@ function createDefeatParticles() {
     if (filtered.length === 0) return hideSuggestions();
 
     const suggestions = filtered.slice(0, 10);
+    if (typeof sfx !== "undefined") sfx.suggestionSound();
 
     filtered.slice(0, 10).forEach((name) => {
       suggestionsDiv.innerHTML = suggestions
@@ -354,6 +352,13 @@ function createDefeatParticles() {
         if (first) input.value = first.textContent.trim();
         hideSuggestions();
         submitGuess();
+      });
+
+      // Ajouter SFX au hover sur les suggestions
+      suggestionsDiv.querySelectorAll(".suggestion-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          if (typeof sfx !== "undefined") sfx.suggestionSound();
+        });
       });
     });
 
@@ -386,8 +391,9 @@ function createDefeatParticles() {
       resultModal.classList.remove("hidden", "defeat");
       resultModal.classList.add("victory");
 
-      // Lance les confettis de victoire
+      // Lance les confettis de victoire et son
       createConfetti();
+      if (typeof sfx !== "undefined") sfx.victorySound();
 
       input.disabled = true;
       submitBtn.disabled = true;
@@ -409,6 +415,7 @@ function createDefeatParticles() {
 
       guessedNames.add(guess);
       addGuessRow(guess);
+      if (typeof sfx !== "undefined") sfx.wrongGuessSound();
 
       // lose life
       lives = Math.max(0, lives - 1);
@@ -437,8 +444,9 @@ function createDefeatParticles() {
         resultModal.classList.remove("hidden", "victory");
         resultModal.classList.add("defeat");
 
-        // Lance les particules de défaite
+        // Lance les particules de défaite et son
         createDefeatParticles();
+        if (typeof sfx !== "undefined") sfx.defeatSound();
 
         input.disabled = true;
         submitBtn.disabled = true;
@@ -447,6 +455,7 @@ function createDefeatParticles() {
     }
 
     // invalid
+    if (typeof sfx !== "undefined") sfx.wrongGuessSound();
     resultMessage.textContent = `Invalid guess: "${guess}"`;
     setTimeout(() => {
       resultMessage.textContent = "";
@@ -473,7 +482,6 @@ function createDefeatParticles() {
   // choose target
   const allNames = Object.keys(items);
   targetItem = items[targetName];
-  console.log("CLASSIC TARGET:", targetName, targetItem);
 
   // wire events
   updateLivesDisplay();
@@ -496,7 +504,10 @@ function createDefeatParticles() {
       hideSuggestions();
   });
 
-  submitBtn.addEventListener("click", submitGuess);
+  submitBtn.addEventListener("click", () => {
+    if (typeof sfx !== "undefined") sfx.clickSound();
+    submitGuess();
+  });
 })();
 
 // Note: Detective mode is now handled by detective.js
