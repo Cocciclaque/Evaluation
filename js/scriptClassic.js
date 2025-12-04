@@ -244,6 +244,12 @@ function createDefeatParticles() {
     return `images/64px-images/64px-${fileName}.webp`;
   }
 
+  function iconUrl192(iconName) {
+    if (!iconName) return "";
+    const fileName = String(iconName).replace(/ /g, "_"); // replace spaces
+    return `images/192px-images/192px-${fileName}.webp`;
+  }
+
   function updateLivesDisplay() {
     livesSpan.textContent = lives;
     livesHearts.textContent =
@@ -337,7 +343,7 @@ function createDefeatParticles() {
       suggestionsDiv.innerHTML = suggestions
         .map(
           (item) =>
-            `<div class="suggestion-item"><img style="margin-right: 8px; vertical-align: middle; object-fit: contain;" src="${iconUrl64(
+            `<div class="suggestion-item"><img style="margin-right: 8px; vertical-align: middle; object-fit: contain;" src="${iconUrl(
               item
             )}" alt="${item}" class="guess-img">${item}</div>`
         )
@@ -363,9 +369,21 @@ function createDefeatParticles() {
     if (guess === targetName) {
       resultTitle.innerHTML =
         '<span style="font-size: 3rem;">🎉</span><br>Correct!';
-      resultMessage.textContent = `The item was ${targetName}.`;
+
+      // Ajouter image et effets
+      const iconName = (targetItem.icon || targetName).replace(/ /g, "_");
+      const imageUrl = iconUrl192(iconName);
+      const effectsText = targetItem.Effect
+        ? targetItem.Effect.join(", ")
+        : "None";
+
+      resultMessage.innerHTML = `
+        <img src="${imageUrl}" alt="${targetName}" style="width: 128px; height: 128px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px;">
+        <strong>${targetName}</strong>
+        <p style="margin-top: 8px; color: #aaa;">Effects: ${effectsText}</p>
+      `;
       resultLives.textContent = String(lives);
-      resultModal.classList.remove("hidden");
+      resultModal.classList.remove("hidden", "defeat");
       resultModal.classList.add("victory");
 
       // Lance les confettis de victoire
@@ -402,9 +420,21 @@ function createDefeatParticles() {
       if (lives <= 0) {
         resultTitle.innerHTML =
           '<span style="font-size: 3rem;">💀</span><br>Out of lives!';
-        resultMessage.textContent = `The item was ${targetName}.`;
+
+        // Ajouter image et effets
+        const iconName = (targetItem.icon || targetName).replace(/ /g, "_");
+        const imageUrl = iconUrl192(iconName);
+        const effectsText = targetItem.Effect
+          ? targetItem.Effect.join(", ")
+          : "None";
+
+        resultMessage.innerHTML = `
+          <img src="${imageUrl}" alt="${targetName}" style="width: 128px; height: 128px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px;">
+          <strong>${targetName}</strong>
+          <p style="margin-top: 8px; color: #aaa;">Effects: ${effectsText}</p>
+        `;
         resultLives.textContent = String(lives);
-        resultModal.classList.remove("hidden");
+        resultModal.classList.remove("hidden", "victory");
         resultModal.classList.add("defeat");
 
         // Lance les particules de défaite
@@ -469,244 +499,4 @@ function createDefeatParticles() {
   submitBtn.addEventListener("click", submitGuess);
 })();
 
-/* ============================================
-   🕵️ DETECTIVE MODE
-   ============================================ */
-
-(async () => {
-  const DATA_FILE = "data/datas notes.json";
-  const CHOICE_FILE = "data/daily.json";
-  const MAX_LIVES = 7;
-
-
-  function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
-
-//usage:
-let strength = 0;  
-
-readTextFile("data/config.json", function(text){
-      var data = JSON.parse(text);
-      strength = data.Strength;
-      console.log(strength)
-    });
-
-
-
-
-  let items = {},
-    targetName = "",
-    targetItem = null,
-    clueOriginal = "",
-    clueMasked = [];
-
-  const guessedNames = new Set();
-  let lives = MAX_LIVES;
-  let allItems = [];
-
-  const input = document.getElementById("detective-input");
-  const submitBtn = document.getElementById("detective-submit");
-  const suggestionsDiv = document.getElementById("detective-suggestions");
-  const clueBox = document.getElementById("detective-clue");
-
-  const livesSpan = document.getElementById("detective-lives");
-  const livesHearts = document.getElementById("detective-lives-hearts");
-
-  const resultModal = document.getElementById("detective-result");
-  const resultTitle = document.getElementById("detective-result-title");
-  const resultMessage = document.getElementById("detective-result-message");
-  const resultLives = document.getElementById("detective-result-lives");
-
-  function maskText(text) {
-    return text.replace(".", "\n").split("").map((ch) => (/[a-zA-Z0-9]/.test(ch) ? "_" : ch));
-  }
-
-  function revealPercent() {
-    const total = clueMasked.length;
-    let toReveal = Math.floor(total * strength);
-
-    const hiddenIndexes = [];
-    for (let i = 0; i < total; i++) {
-      if (clueMasked[i] === "_" && /[a-zA-Z0-9]/.test(clueOriginal[i]))
-        hiddenIndexes.push(i);
-    }
-
-    while (toReveal > 0 && hiddenIndexes.length > 0) {
-      const idx = Math.floor(Math.random() * hiddenIndexes.length);
-      const pos = hiddenIndexes.splice(idx, 1)[0];
-      clueMasked[pos] = clueOriginal[pos];
-      toReveal--;
-    }
-
-    clueBox.textContent = clueMasked.join("");
-  }
-
-  function updateLivesDisplay() {
-    livesSpan.textContent = lives;
-    livesHearts.textContent =
-      "❤️".repeat(lives) + "🤍".repeat(MAX_LIVES - lives);
-  }
-
-  function hideSuggestions() {
-    suggestionsDiv.style.display = "none";
-    suggestionsDiv.innerHTML = "";
-  }
-
-  function iconUrl(name) {
-    const fileName = String(name).replace(/ /g, "_");
-    return `images/64px-images/64px-${fileName}.webp`;
-  }
-
-  function removeFromSuggestions(name) {
-  const lower = name.toLowerCase();
-  allItems = allItems.filter((n) => n.toLowerCase() !== lower);
-}
-
-
-  function showSuggestions() {
-    const q = input.value.trim().toLowerCase();
-    suggestionsDiv.innerHTML = "";
-    if (!q) return hideSuggestions();
-
-    const filtered = allItems.filter((i) => i.toLowerCase().includes(q));
-    if (!filtered.length) return hideSuggestions();
-
-    const list = filtered.slice(0, 10);
-
-    suggestionsDiv.innerHTML = list
-      .map(
-        (name) =>
-          `<div class="suggestion-item">
-             <img src="${iconUrl(name)}" class="guess-img"> ${name}
-           </div>`
-      )
-      .join("");
-
-    suggestionsDiv.style.display = "block";
-
-    suggestionsDiv.querySelectorAll(".suggestion-item").forEach((el) => {
-      el.addEventListener("click", () => {
-        input.value = el.textContent.trim();
-        hideSuggestions();
-        submitGuess();
-      });
-    });
-  }
-
-  function submitGuess() {
-    const guess = input.value.trim();
-    if (!guess || input.disabled) return;
-
-    
-
-    // correct
-    if (guess === targetName) {
-      resultTitle.textContent = "🎉 Correct!";
-      resultMessage.textContent = `The item was ${targetName}.`;
-      resultLives.textContent = String(lives);
-      resultModal.classList.remove("hidden");
-      input.disabled = true;
-      submitBtn.disabled = true;
-
-      if (guess === targetName) {
-        removeFromSuggestions(guess); // NEW
-
-        resultTitle.textContent = "🎉 Correct!";
-        resultMessage.textContent = `The item was ${targetName}.`;
-        resultLives.textContent = String(lives);
-        resultModal.classList.remove("hidden");
-        input.disabled = true;
-        submitBtn.disabled = true;
-        return;
-      }
-
-
-      return;
-    }
-
-    // valid but wrong
-    if (guess in items) {
-      if (!guessedNames.has(guess)) {
-        guessedNames.add(guess);
-
-        // NEW — remove from suggestion pool
-        removeFromSuggestions(guess);
-
-        lives = Math.max(0, lives - 1);
-        updateLivesDisplay();
-        revealPercent();
-      }
-
-
-      if (lives <= 0) {
-        resultTitle.textContent = "💀 Out of lives!";
-        resultMessage.textContent = `The item was ${targetName}.`;
-        resultLives.textContent = "0";
-        resultModal.classList.remove("hidden");
-        input.disabled = true;
-        submitBtn.disabled = true;
-      }
-      input.value = "";
-      hideSuggestions();
-      return;
-    }
-
-    // invalid
-    input.value = "";
-  }
-
-  // Load data
-  try {
-    const res = await fetch(DATA_FILE);
-    const resChoice = await fetch(CHOICE_FILE);
-    const choice = await resChoice.json();
-    targetName = choice["detective"];
-    items = await res.json();
-    allItems = Object.keys(items);
-  } catch (err) {
-    console.error(err);
-    return;
-  }
-
-  // Select target
-  const names = Object.keys(items);
-  targetItem = items[targetName];
-
-  clueOriginal = targetItem.Notes || "No notes available.";
-  clueMasked = maskText(clueOriginal);
-  clueBox.textContent = clueMasked.join("");
-
-  console.log("DETECTIVE TARGET:", targetName, clueOriginal);
-
-  // Wire events
-  updateLivesDisplay();
-
-  input.addEventListener("input", showSuggestions);
-  input.addEventListener("focus", showSuggestions);
-
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const first = suggestionsDiv.querySelector(".suggestion-item");
-      if (first) input.value = first.textContent.trim();
-      hideSuggestions();
-      submitGuess();
-    }
-  });
-
-  submitBtn.addEventListener("click", submitGuess);
-
-  document.addEventListener("click", (e) => {
-    if (!suggestionsDiv.contains(e.target) && e.target !== input)
-      hideSuggestions();
-  });
-})();
+// Note: Detective mode is now handled by detective.js

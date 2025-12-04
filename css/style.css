@@ -498,6 +498,9 @@ body::after {
 .game-card:nth-child(2) {
   animation-delay: 0.35s;
 }
+.game-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
 
 /* Effet de texture papier/carnet */
 .game-card::before {
@@ -1898,11 +1901,75 @@ footer {
   font-weight: 700;
 }
 
+/* ============================================
+   DETECTIVE MODE - Clue styling
+   ============================================ */
+.clue-container {
+  background: linear-gradient(
+    160deg,
+    rgba(42, 49, 66, 0.95) 0%,
+    rgba(26, 31, 46, 0.95) 100%
+  );
+  border: 3px solid var(--campfire-orange);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--campfire-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.clue-container::before {
+  content: "🔍";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 4rem;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.clue-container h3 {
+  font-family: "Baloo 2", cursive;
+  font-size: 1.3rem;
+  color: var(--campfire-orange);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clue-container h3::before {
+}
 
 .detective-clue {
+  background: rgba(26, 31, 46, 0.8);
+  border: 2px solid rgba(196, 163, 90, 0.2);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-cream);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detective-clue .hidden-char {
   display: inline-block;
-  margin: 0 4px;
-  font-size: 1.4em;
-  font-weight: 700;
-  letter-spacing: 2px;
+  width: 0.8em;
+  height: 1.2em;
+  background: rgba(255, 127, 63, 0.3);
+  border-radius: 4px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.detective-clue .revealed-char {
+  color: var(--energy-green);
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
 }
