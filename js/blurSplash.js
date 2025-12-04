@@ -74,11 +74,11 @@ async function getRandomItemImageUrl() {
   try {
     const response = await fetch("data/datas.json");
     const datas = await response.json();
-    const resChoice = await fetch("data/daily.json")
+    const resChoice = await fetch("data/daily.json");
     const data_choice = await resChoice.json();
 
     // Charge l'item depuis daily.kson
-    const ItemName = data_choice['splash'];
+    const ItemName = data_choice["splash"];
 
     // Stocke l'item actuel
     currentItem = {
@@ -244,7 +244,7 @@ async function addGuessToDisplay(itemName, isCorrect) {
 
     // Crée l'élément de tentative
     const guessElement = document.createElement("div");
-    guessElement.className = "guess-item";
+    guessElement.className = "guess-item" + (isCorrect ? " correct" : " wrong");
 
     // Construit l'URL de l'image
     const iconName = itemData.icon.replace(/ /g, "_");
