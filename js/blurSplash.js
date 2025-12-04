@@ -308,9 +308,21 @@ function checkAnswer() {
     if (resultModal && resultTitle && resultMessage && resultLives) {
       resultTitle.innerHTML =
         '<span style="font-size: 3rem;">🎉</span><br>Correct!';
-      resultMessage.textContent = `The item was ${currentItemName}.`;
+
+      // Ajouter image et effets
+      const iconName = currentItem.data.icon.replace(/ /g, "_");
+      const imageUrl = iconUrl192(iconName);
+      const effectsText = currentItem.data.Effect
+        ? currentItem.data.Effect.join(", ")
+        : "None";
+
+      resultMessage.innerHTML = `
+        <img src="${imageUrl}" alt="${currentItemName}" style="width: 128px; height: 128px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px;">
+        <strong>${currentItemName}</strong>
+        <p style="margin-top: 8px; color: #aaa;">Effects: ${effectsText}</p>
+      `;
       resultLives.textContent = String(lives);
-      resultModal.classList.remove("hidden");
+      resultModal.classList.remove("hidden", "defeat");
       resultModal.classList.add("victory");
 
       // Lance les confettis de victoire
@@ -354,9 +366,21 @@ function checkAnswer() {
       if (resultModal && resultTitle && resultMessage && resultLives) {
         resultTitle.innerHTML =
           '<span style="font-size: 3rem;">💀</span><br>Out of lives!';
-        resultMessage.textContent = `The item was ${currentItemName}.`;
+
+        // Ajouter image et effets
+        const iconName = currentItem.data.icon.replace(/ /g, "_");
+        const imageUrl = iconUrl192(iconName);
+        const effectsText = currentItem.data.Effect
+          ? currentItem.data.Effect.join(", ")
+          : "None";
+
+        resultMessage.innerHTML = `
+          <img src="${imageUrl}" alt="${currentItemName}" style="width: 128px; height: 128px; object-fit: contain; margin: 10px auto; display: block; border-radius: 8px;">
+          <strong>${currentItemName}</strong>
+          <p style="margin-top: 8px; color: #aaa;">Effects: ${effectsText}</p>
+        `;
         resultLives.textContent = String(lives);
-        resultModal.classList.remove("hidden");
+        resultModal.classList.remove("hidden", "victory");
         resultModal.classList.add("defeat");
 
         // Lance les particules de défaite
