@@ -1,5 +1,5 @@
 (async () => {
-  const DATA_FILE = "datas.json";
+  const DATA_FILE = "data/datas notes.json";
   const MAX_LIVES = 7;
 
   let items = {};
@@ -336,9 +336,7 @@
   targetItem = pickedData;
 
   // Build a clue string from item properties
-  const clueText = `Type: ${targetItem.Type} | Rarity: ${
-    targetItem.Rarity
-  } | Weight: ${targetItem.Weight} | Effects: ${targetItem.Effect.join(", ")}`;
+  const clueText = `${targetItem.Notes}`;
   originalNote = clueText;
   revealedMask = maskNote(originalNote);
 
