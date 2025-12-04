@@ -1228,7 +1228,7 @@ footer {
   display: block;
   animation: fireFlicker 1s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 25px rgba(255, 127, 63, 0.6))
-          drop-shadow(0 0 50px rgba(255, 107, 53, 0.4));
+    drop-shadow(0 0 50px rgba(255, 107, 53, 0.4));
 }
 
 /* Extra logs behind */
@@ -1955,8 +1955,11 @@ footer {
   text-align: center;
   min-height: 60px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 0.2em;
+  overflow: hidden;
 }
 
 .detective-clue .hidden-char {
