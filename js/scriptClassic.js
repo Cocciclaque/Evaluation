@@ -216,7 +216,8 @@ function createDefeatParticles() {
 }
 
 (async () => {
-  const DATA_FILE = "datas.json";
+  const DATA_FILE = "data/datas.json";
+  const CHOICE_FILE = "data/daily.json";
   const MAX_LIVES = 7;
 
   let items = {},
@@ -457,6 +458,9 @@ function createDefeatParticles() {
   // --- load data ---
   try {
     const res = await fetch(DATA_FILE);
+    const resChoice = await fetch(CHOICE_FILE);
+    const choice = await resChoice.json();
+    targetName = choice["classic"];
     if (!res.ok) throw new Error("Failed to load " + DATA_FILE);
     items = await res.json();
     allItems = Object.keys(items);
@@ -468,7 +472,6 @@ function createDefeatParticles() {
 
   // choose target
   const allNames = Object.keys(items);
-  targetName = allNames[Math.floor(Math.random() * allNames.length)];
   targetItem = items[targetName];
   console.log("CLASSIC TARGET:", targetName, targetItem);
 

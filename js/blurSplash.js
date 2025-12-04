@@ -72,26 +72,24 @@ function pixelateImage(pixelationLevel) {
 // Fonction pour charger et choisir un item aléatoire
 async function getRandomItemImageUrl() {
   try {
-    const response = await fetch("datas.json");
+    const response = await fetch("data/datas.json");
     const datas = await response.json();
+    const resChoice = await fetch("data/daily.json")
+    const data_choice = await resChoice.json();
 
-    // Récupère tous les noms d'items
-    const itemNames = Object.keys(datas);
-
-    // Sélectionne un item aléatoire
-    const randomIndex = Math.floor(Math.random() * itemNames.length);
-    const randomItemName = itemNames[randomIndex];
+    // Charge l'item depuis daily.kson
+    const ItemName = data_choice['splash'];
 
     // Stocke l'item actuel
     currentItem = {
-      name: randomItemName,
-      data: datas[randomItemName],
+      name: ItemName,
+      data: datas[ItemName],
     };
 
     // Retourne l'objet avec le nom et l'URL
-    const iconName = datas[randomItemName].icon.replace(/ /g, "_");
+    const iconName = datas[ItemName].icon.replace(/ /g, "_");
     return {
-      item: randomItemName,
+      item: ItemName,
       url: iconUrl192(iconName),
     };
   } catch (error) {
@@ -123,7 +121,7 @@ async function loadRandomImage() {
 // Fonction pour charger la liste des items
 async function loadItemsList() {
   try {
-    const response = await fetch("datas.json");
+    const response = await fetch("data/datas.json");
     const datas = await response.json();
     allItems = Object.keys(datas);
   } catch (error) {
@@ -235,7 +233,7 @@ async function addGuessToDisplay(itemName, isCorrect) {
 
   // Récupère les données pour obtenir l'icône
   try {
-    const response = await fetch("datas.json");
+    const response = await fetch("data/datas.json");
     const datas = await response.json();
     const itemData = datas[itemName];
 
