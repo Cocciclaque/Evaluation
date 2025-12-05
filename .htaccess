@@ -1,0 +1,143 @@
+# ==============================================================================
+
+# 🔒 SECURITY HEADERS - PeakDLE
+
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+
+# Force HTTPS (si supporté par l'hébergeur)
+
+# ------------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+
+# Security Headers
+
+# ------------------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    # X-Frame-Options: Empêche le site d'être affiché dans un iframe (protection contre clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # X-Content-Type-Options: Empêche le navigateur de deviner le type MIME
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # X-XSS-Protection: Active la protection XSS du navigateur (pour les anciens navigateurs)
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer-Policy: Contrôle les informations envoyées dans le header Referer
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions-Policy: Désactive les APIs non utilisées
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # Content-Security-Policy: Politique de sécurité du contenu
+    # Ajustez selon vos besoins si vous ajoutez des services externes
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self';"
+    
+    # Strict-Transport-Security: Force HTTPS (HSTS)
+    # Activez seulement si vous avez un certificat SSL valide
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+
+# Compression GZIP (améliore les performances)
+
+# ------------------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ------------------------------------------------------------------------------
+
+# Cache Control (améliore les performances)
+
+# ------------------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS et JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    
+    # HTML (pas de cache pour les pages principales)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # JSON (données du jeu - courte durée)
+    ExpiresByType application/json "access plus 1 hour"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+
+# Protection des fichiers sensibles
+
+# ------------------------------------------------------------------------------
+
+<FilesMatch "^\.">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+# Empêche l'accès aux fichiers de configuration et scripts Python
+
+<FilesMatch "\.(py|json|md)$">
+<IfModule mod_authz_core.c>
+Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+Order allow,deny
+Deny from all
+</IfModule>
+</FilesMatch>
+
+# Note: Si vous avez besoin d'accéder aux fichiers JSON depuis le navigateur,
+
+# retirez "json" de la ligne ci-dessus et ajoutez plutôt cette règle :
+
+# <FilesMatch "^(config|daily|datas|foods)\.json$">
+
+# <IfModule mod_authz_core.c>
+
+# Require all granted
+
+# </IfModule>
+
+# </FilesMatch>
+
+# ------------------------------------------------------------------------------
+
+# Custom Error Pages
+
+# ------------------------------------------------------------------------------
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# ==============================================================================
+
+# Note: Ce fichier .htaccess fonctionne avec les serveurs Apache
+
+# Si vous utilisez Nginx, GitHub Pages, Netlify ou d'autres hébergeurs,
+
+# consultez leur documentation pour configurer les headers de sécurité
+
+# ==============================================================================
