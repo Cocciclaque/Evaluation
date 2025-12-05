@@ -1,5 +1,6 @@
 (async () => {
   const DATA_FILE = "data/datas notes.json";
+  const CHOICE_FILE = "data/daily.json";
   const MAX_LIVES = 7;
 
   let items = {};
@@ -313,8 +314,11 @@
   }
 
   // Load items
+  let choiceData;
   try {
     const res = await fetch(DATA_FILE);
+    const resChoice = await fetch(CHOICE_FILE);
+    choiceData = await resChoice.json();
     items = await res.json();
     allItems = Object.keys(items);
   } catch (err) {
@@ -332,8 +336,8 @@
   }
   const [pickedName, pickedData] =
     itemsWithEffect[Math.floor(Math.random() * itemsWithEffect.length)];
-  targetName = pickedName;
-  targetItem = pickedData;
+  targetName = choiceData['detective'];
+  targetItem = items[targetName];
 
   // Build a clue string from item properties
   const clueText = `${targetItem.Notes}`;
