@@ -122,6 +122,7 @@
     if (filtered.length === 0) return hideSuggestions();
 
     const suggestions = filtered.slice(0, 10);
+    if (typeof sfx !== "undefined") sfx.suggestionSound();
 
     suggestionsDiv.innerHTML = suggestions
       .map((item, idx) => {
@@ -152,6 +153,7 @@
         itemsEls.forEach((e) => e.classList.remove("selected"));
         el.classList.add("selected");
         selectedIdx = idx;
+        if (typeof sfx !== "undefined") sfx.suggestionSound();
       });
     });
   }
@@ -196,14 +198,6 @@
 
   function submitGuess() {
     const guess = input.value.trim();
-    console.log(
-      "submitGuess called with:",
-      guess,
-      "| target:",
-      targetName,
-      "| match:",
-      guess === targetName
-    );
     if (!guess) return;
     if (input.disabled) return;
 
@@ -230,13 +224,10 @@
       resultModal.classList.remove("hidden", "defeat");
       resultModal.classList.add("victory");
 
-      // Lance les confettis de victoire
-      console.log("Victory! Calling createConfetti...");
+      // Lance les confettis de victoire et son
       if (typeof createConfetti === "function") {
         createConfetti();
-        console.log("createConfetti called successfully");
-      } else {
-        console.log("createConfetti not found");
+        if (typeof sfx !== "undefined") sfx.victorySound();
       }
 
       // Add final correct guess entry
@@ -257,6 +248,7 @@
       guessedNames.add(guess);
       // add wrong guess entry
       addGuessToDisplay(guess, false);
+      if (typeof sfx !== "undefined") sfx.wrongGuessSound();
       guessIsValid = true;
 
       // incorrect → lose life + reveal
@@ -288,13 +280,10 @@
         resultModal.classList.remove("hidden", "victory");
         resultModal.classList.add("defeat");
 
-        // Lance les particules de défaite
-        console.log("Defeat! Calling createDefeatParticles...");
+        // Lance les particules de défaite et son
         if (typeof createDefeatParticles === "function") {
           createDefeatParticles();
-          console.log("createDefeatParticles called successfully");
-        } else {
-          console.log("createDefeatParticles not found");
+          if (typeof sfx !== "undefined") sfx.defeatSound();
         }
 
         input.disabled = true;
@@ -347,8 +336,6 @@
   updateLivesDisplay();
   updateHintDisplay();
 
-  console.log("DETECTIVE TARGET:", targetName);
-
   // Event wiring
   input.addEventListener("input", () => {
     selectedIdx = -1; // Reset la sélection quand on tape
@@ -357,7 +344,10 @@
   input.addEventListener("focus", showSuggestions);
   input.addEventListener("keydown", handleKeydown);
 
-  submitBtn.addEventListener("click", submitGuess);
+  submitBtn.addEventListener("click", () => {
+    if (typeof sfx !== "undefined") sfx.clickSound();
+    submitGuess();
+  });
 
   document.addEventListener("click", (e) => {
     if (!suggestionsDiv.contains(e.target) && e.target !== input)

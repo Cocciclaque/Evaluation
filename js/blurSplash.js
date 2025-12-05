@@ -112,7 +112,6 @@ async function loadRandomImage() {
     originalImage.onload = function () {
       // Applique la pixelisation initiale
       pixelateImage(pixelSize);
-      console.log("Image chargée et pixelisée:", result.item);
     };
     originalImage.src = result.url;
   }
@@ -151,6 +150,8 @@ function showSuggestions(input, suggestionsDiv) {
 
   // Affiche les suggestions
   if (suggestions.length > 0) {
+    if (typeof sfx !== "undefined") sfx.suggestionSound();
+
     suggestionsDiv.innerHTML = suggestions
       .map(
         (item) =>
@@ -168,6 +169,9 @@ function showSuggestions(input, suggestionsDiv) {
         input.value = item.textContent;
         suggestionsDiv.innerHTML = "";
         suggestionsDiv.style.display = "none";
+      });
+      item.addEventListener("mouseenter", () => {
+        if (typeof sfx !== "undefined") sfx.suggestionSound();
       });
     });
   } else {
@@ -275,7 +279,6 @@ function checkAnswer() {
 
   // Vérifie si l'input n'est pas vide
   if (guess === "") {
-    console.log("Veuillez entrer un item");
     return;
   }
 
@@ -286,7 +289,6 @@ function checkAnswer() {
 
   // Vérifie si l'item a déjà été tenté
   if (wrongGuesses.includes(guess)) {
-    console.log("⚠️ Tu as déjà essayé cet item !");
     input.value = "";
     return;
   }
@@ -323,16 +325,17 @@ function checkAnswer() {
       resultModal.classList.remove("hidden", "defeat");
       resultModal.classList.add("victory");
 
-      // Lance les confettis de victoire
+      // Lance les confettis de victoire et son
       createConfetti();
+      if (typeof sfx !== "undefined") sfx.victorySound();
     }
     input.disabled = true;
     if (submitBtn) submitBtn.disabled = true;
-    console.log("🎉 Bravo ! Tu as trouvé le bon item : " + currentItemName);
   } else {
     // Mauvaise réponse - ajoute à la liste des mauvaises réponses
     wrongGuesses.push(guess);
     addGuessToDisplay(guess, false);
+    if (typeof sfx !== "undefined") sfx.wrongGuessSound();
 
     // Perd une vie
     lives = Math.max(0, lives - 1);
@@ -345,12 +348,6 @@ function checkAnswer() {
     if (lives > 0) {
       // Il reste des vies - dé-pixelise progressivement
       pixelateImage(pixelSize);
-      console.log(
-        "❌ Mauvaise réponse ! Il te reste " +
-          lives +
-          " vie(s). Pixel size: " +
-          pixelSize
-      );
     } else {
       // Plus de vies - révèle complètement
       pixelateImage(1);
@@ -381,16 +378,12 @@ function checkAnswer() {
         resultModal.classList.remove("hidden", "victory");
         resultModal.classList.add("defeat");
 
-        // Lance les particules de défaite
+        // Lance les particules de défaite et son
         createDefeatParticles();
+        if (typeof sfx !== "undefined") sfx.defeatSound();
       }
       input.disabled = true;
       if (submitBtn) submitBtn.disabled = true;
-      console.log(
-        "💔 Dommage ! C'était : " +
-          currentItemName +
-          ". Tu as épuisé toutes tes vies."
-      );
     }
   }
 
@@ -482,7 +475,10 @@ function initBlur() {
   // Ajoute l'écouteur d'événement pour le bouton submit
   const submitBtn = document.getElementById("splash-submit");
   if (submitBtn) {
-    submitBtn.addEventListener("click", checkAnswer);
+    submitBtn.addEventListener("click", () => {
+      if (typeof sfx !== "undefined") sfx.clickSound();
+      checkAnswer();
+    });
   }
 
   // Permet de valider avec la touche Enter
