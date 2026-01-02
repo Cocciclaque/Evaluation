@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Guess the Peak game! A daily guessing game based on the climbing game Peak."
+      content="PeakDLE - The daily guessing game inspired by the climbing game Peak. Test your knowledge of the game's items!"
     />
+<<<<<<< HEAD
     <title>Peakdle - Guess the Peak Game</title>
+=======
+    <title>PeakDLE - Guess the Peak Items</title>
+    <link rel="icon" href="images/PEAK_logo.jpg" />
+>>>>>>> a401191e2a0e166e403818f55db74253ead91d27
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cookie-banner.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -25,6 +31,9 @@
         <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
         <li><a href="#" class="nav-link" data-page="classic">Classic</a></li>
         <li><a href="#" class="nav-link" data-page="splash">Splash</a></li>
+        <li>
+          <a href="#" class="nav-link" data-page="detective">Detective</a>
+        </li>
       </ul>
     </nav>
 
@@ -33,10 +42,10 @@
       <section id="home-page" class="page active">
         <header class="hero">
           <h1 class="hero-title">🏔️ PEAKDLE</h1>
-          <p class="hero-subtitle">Guess the Peak game!</p>
+          <p class="hero-subtitle">The daily challenge for climbers!</p>
           <p class="hero-description">
-            Can you identify the Peak climbing levels? Test your knowledge with
-            our daily challenges!
+            Welcome, adventurer! Put your knowledge of Peak items to the test
+            through our daily challenges. Can you recognize them all?
           </p>
         </header>
 
@@ -45,8 +54,8 @@
             <div class="game-icon">🎯</div>
             <h2>Classic Mode</h2>
             <p>
-              Guess the Peak level from screenshots in 6 tries. Each wrong guess
-              reveals more of the image.
+              Guess the item based on its characteristics! With each attempt,
+              discover clues about its type, rarity, weight, and more.
             </p>
             <button class="play-btn" data-page="classic">Play Classic</button>
           </div>
@@ -55,21 +64,30 @@
             <div class="game-icon">🎨</div>
             <h2>Splash Mode</h2>
             <p>
-              Identify the level from its splash art! A colorful challenge for
-              true Peak fans.
+              Recognize the item from its pixelated image! The picture becomes
+              clearer with each attempt.
             </p>
             <button class="play-btn" data-page="splash">Play Splash</button>
+          </div>
+
+          <div class="game-card" data-game="detective">
+            <div class="game-icon">🔍</div>
+            <h2>Detective Mode</h2>
+            <p>Guess the item by it's description !</p>
+            <button class="play-btn" data-page="detective">
+              Play Detective
+            </button>
           </div>
         </div>
 
         <div class="daily-info">
           <p class="timer">
-            Next puzzle in: <span id="countdown-home">--:--:--</span>
+            Next challenge in: <span id="countdown-home">--:--:--</span>
           </p>
         </div>
       </section>
 
-      <!-- CLASSIC MODE PAGE -->
+      <!-- CLASSIC MODE PAGE (updated: full-width input+button, Splash-mode autocomplete visuals) -->
       <section id="classic-page" class="page">
         <div class="page-header">
           <button class="back-btn" data-page="home">← Back</button>
@@ -78,58 +96,55 @@
 
         <div class="game-mode">
           <div class="game-info">
-            <p>Guess the Peak level in 6 tries!</p>
-            <div class="attempts">
-              <span
-                >Attempts:
-                <strong><span id="classic-attempts">0</span>/6</strong></span
+            <p>Guess the Peak item!</p>
+            <div class="lives">
+              Lives: <strong id="classic-lives">7</strong>/7
+              <span id="classic-lives-hearts" style="margin-left: 8px"
+                >❤️❤️❤️❤️❤️❤️❤️</span
               >
             </div>
           </div>
 
-          <!-- Image Display -->
-          <div class="image-container">
-            <div class="blur-overlay" id="classic-blur"></div>
-            <img
-              id="classic-image"
-              src=""
-              alt="Peak level screenshot"
-              class="game-image"
-            />
-          </div>
-
-          <!-- Input Area -->
+          <!-- Input Area + Autocomplete (fills the whole row) -->
           <div class="input-area">
             <input
               type="text"
               id="classic-input"
               class="level-input"
-              placeholder="Enter level name or number..."
+              placeholder="Enter item name..."
               autocomplete="off"
             />
             <button id="classic-submit" class="submit-btn">Guess</button>
-          </div>
 
-          <!-- Suggestions Dropdown -->
+            <!-- Autocomplete dropdown (Splash-style visuals) -->
+          </div>
           <div id="classic-suggestions" class="suggestions-dropdown"></div>
 
           <!-- Guesses List -->
           <div class="guesses-container">
             <h3>Your Guesses:</h3>
-            <div id="classic-guesses" class="guesses-list"></div>
+            <div
+              id="classic-guesses"
+              style="
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                padding-bottom: 4px;
+              "
+            ></div>
           </div>
 
           <!-- Result Modal -->
           <div id="classic-result" class="result-modal hidden">
             <div class="result-content">
+              <button class="modal-close" aria-label="Close">✖</button>
               <h2 id="classic-result-title"></h2>
               <p id="classic-result-message"></p>
               <div class="result-stats">
-                <p>Attempts: <strong id="classic-result-attempts"></strong></p>
+                <p>
+                  Lives remaining: <strong id="classic-result-lives"></strong>
+                </p>
               </div>
-              <button id="classic-share" class="share-btn">
-                Share Results
-              </button>
               <button
                 id="classic-play-again"
                 class="play-again-btn"
@@ -151,11 +166,11 @@
 
         <div class="game-mode">
           <div class="game-info">
-            <p>Identify the Peak level from the splash art!</p>
-            <div class="attempts">
-              <span
-                >Attempts:
-                <strong><span id="splash-attempts">0</span>/6</strong></span
+            <p>Identify the Peak item from the pixelated sprite!</p>
+            <div class="lives">
+              Lives: <strong id="splash-lives">7</strong>/7
+              <span id="splash-lives-hearts" style="margin-left: 8px"
+                >❤️❤️❤️❤️❤️❤️❤️</span
               >
             </div>
           </div>
@@ -176,7 +191,11 @@
               type="text"
               id="splash-input"
               class="level-input"
+<<<<<<< HEAD
               placeholder="Enter items..."
+=======
+              placeholder="Enter item name..."
+>>>>>>> a401191e2a0e166e403818f55db74253ead91d27
               autocomplete="off"
             />
             <button id="splash-submit" class="submit-btn">Guess</button>
@@ -194,12 +213,14 @@
           <!-- Result Modal -->
           <div id="splash-result" class="result-modal hidden">
             <div class="result-content">
+              <button class="modal-close" aria-label="Close">✖</button>
               <h2 id="splash-result-title"></h2>
               <p id="splash-result-message"></p>
               <div class="result-stats">
-                <p>Attempts: <strong id="splash-result-attempts"></strong></p>
+                <p>
+                  Lives remaining: <strong id="splash-result-lives"></strong>
+                </p>
               </div>
-              <button id="splash-share" class="share-btn">Share Results</button>
               <button
                 id="splash-play-again"
                 class="play-again-btn"
@@ -211,6 +232,97 @@
           </div>
         </div>
       </section>
+
+      <section id="detective-page" class="page">
+        <div class="page-header">
+          <button class="back-btn" data-page="home">← Back</button>
+          <h2>🕵️ Detective Mode</h2>
+        </div>
+
+        <div class="game-mode">
+          <div class="game-info">
+            <p>Reveal the hidden item description and guess the item!</p>
+            <div class="lives">
+              Lives: <strong id="detective-lives">7</strong>/7
+              <span id="detective-lives-hearts" style="margin-left: 8px">
+                ❤️❤️❤️❤️❤️❤️❤️
+              </span>
+            </div>
+          </div>
+
+          <!-- Hidden Clue Box -->
+          <div class="clue-container">
+            <h3>Clue:</h3>
+            <div id="detective-clue" class="detective-clue"></div>
+          </div>
+
+          <!-- Input Area + Autocomplete -->
+          <div class="input-area">
+            <input
+              type="text"
+              id="detective-input"
+              class="level-input"
+              placeholder="Enter item name..."
+              autocomplete="off"
+            />
+            <button id="detective-submit" class="submit-btn">Guess</button>
+          </div>
+
+          <div id="detective-suggestions" class="suggestions-dropdown"></div>
+
+          <!-- Guesses List (same structure as Splash) -->
+          <div class="guesses-container">
+            <h3>Your Guesses:</h3>
+            <div id="detective-guesses" class="guesses-list"></div>
+          </div>
+
+          <!-- Result Modal -->
+          <div id="detective-result" class="result-modal hidden">
+            <div class="result-content">
+              <button class="modal-close" aria-label="Close">✖</button>
+              <h2 id="detective-result-title"></h2>
+              <p id="detective-result-message"></p>
+              <div class="result-stats">
+                <p>
+                  Lives remaining:
+                  <strong id="detective-result-lives"></strong>
+                </p>
+              </div>
+              <button
+                id="detective-play-again"
+                class="play-again-btn"
+                data-page="home"
+              >
+                Back to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+      <div class="cookie-banner-content">
+        <div class="cookie-banner-text">
+          <h3>🍪 We respect your privacy</h3>
+          <p>
+            This site doesn't use cookies directly. However, if you choose to
+            support us via <strong>Buy Me a Coffee</strong>, their third-party
+            service may use cookies in accordance with their own policy.
+            <br />
+            <a href="privacy-policy.html" target="_blank">Learn more</a>
+          </p>
+        </div>
+        <div class="cookie-banner-buttons">
+          <button id="cookie-accept" class="cookie-btn cookie-btn-accept">
+            ✅ I accept
+          </button>
+          <button id="cookie-decline" class="cookie-btn cookie-btn-decline">
+            ❌ I decline
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
@@ -226,11 +338,11 @@
       </div>
 
       <div class="footer-content">
-        <p>Ready for the next climb? 🧗</p>
+        <p>Ready for the next ascent? 🧗</p>
         <p>
-          A daily guessing game based on
+          A daily guessing game inspired by
           <a
-            href="https://store.steampowered.com/app/1939240/Peak/"
+            href="https://store.steampowered.com/app/3527290/PEAK/"
             target="_blank"
             rel="noopener"
             >Peak</a
@@ -239,12 +351,35 @@
 
         <div class="footer-badge">
           <span>⛺</span>
-          Made with ❤️ for the climbing scouts
+          Made with ❤️ for adventurous climbers
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 30px; font-size: 0.9rem">
+          <a
+            href="legal-notice.html"
+            style="color: #ff6b35; text-decoration: none; margin: 0 10px"
+            >Legal Notice</a
+          >
+          |
+          <a
+            href="privacy-policy.html"
+            style="color: #ff6b35; text-decoration: none; margin: 0 10px"
+            >Privacy Policy</a
+          >
         </div>
       </div>
     </footer>
 
+<<<<<<< HEAD
     <script src="js/script.js"></script>
     <script src="js/blur.js"></script>
+=======
+    <script src="js/sfx.js"></script>
+    <script src="js/scriptClassic.js"></script>
+    <script src="js/blurSplash.js"></script>
+    <script src="js/detective.js"></script>
+    <script src="js/homeSfx.js"></script>
+    <script src="js/cookie-consent.js"></script>
+>>>>>>> a401191e2a0e166e403818f55db74253ead91d27
   </body>
 </html>

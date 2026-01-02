@@ -498,6 +498,9 @@ body::after {
 .game-card:nth-child(2) {
   animation-delay: 0.35s;
 }
+.game-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
 
 /* Effet de texture papier/carnet */
 .game-card::before {
@@ -681,7 +684,7 @@ body::after {
 
 /* Game Mode Container */
 .game-mode {
-  max-width: 650px;
+  max-width: 950px; /* plus large pour afficher tous les guesses */
   margin: 0 auto;
 }
 
@@ -837,48 +840,127 @@ body::after {
   padding: 1.3rem;
   border: 2px solid rgba(196, 163, 90, 0.15);
   animation: fadeSlideUp 0.5s var(--ease-smooth) 0.3s backwards;
+  max-height: 450px;
 }
 
 .guesses-container h3 {
   font-family: "Baloo 2", cursive;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--campfire-orange);
   margin-bottom: 1rem;
 }
 
 .guesses-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.8rem;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+.guesses-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.guesses-list::-webkit-scrollbar-track {
+  background: rgba(26, 31, 46, 0.5);
+  border-radius: 3px;
+}
+
+.guesses-list::-webkit-scrollbar-thumb {
+  background: var(--campfire-orange);
+  border-radius: 3px;
+}
+
+.guesses-list::-webkit-scrollbar-thumb:hover {
+  background: var(--campfire-light);
 }
 
 .guess-item {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.9rem 1.1rem;
-  background: rgba(26, 31, 46, 0.7);
-  border-radius: 12px;
-  border: 2px solid transparent;
-  animation: pitonStrike 0.4s var(--ease-bounce);
+  padding: 1rem 1.2rem;
+  background: rgba(26, 31, 46, 0.8);
+  border-radius: 14px;
+  border: 2px solid rgba(196, 163, 90, 0.2);
+  animation: fadeSlideUp 0.4s var(--ease-bounce);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.guess-item:hover {
+  transform: translateX(5px);
+  background: rgba(26, 31, 46, 0.95);
+  border-color: rgba(196, 163, 90, 0.4);
 }
 
 .guess-item.correct {
   background: linear-gradient(
     135deg,
-    rgba(74, 222, 128, 0.15) 0%,
-    rgba(74, 222, 128, 0.05) 100%
+    rgba(74, 222, 128, 0.2) 0%,
+    rgba(74, 222, 128, 0.08) 100%
   );
   border-color: var(--energy-green);
-  box-shadow: 0 0 25px rgba(74, 222, 128, 0.2);
+  box-shadow: 0 0 30px rgba(74, 222, 128, 0.3),
+    inset 0 1px 0 rgba(74, 222, 128, 0.1);
   animation: badgeUnlock 0.6s var(--ease-bounce);
 }
 
 .guess-item.wrong {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: var(--danger-red);
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.15) 0%,
+    rgba(239, 68, 68, 0.05) 100%
+  );
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
   animation: wrongGuess 0.5s var(--ease-smooth);
+}
+
+.guess-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(42, 49, 66, 0.5);
+  padding: 4px;
+  border: 2px solid rgba(196, 163, 90, 0.15);
+  transition: all 0.3s;
+}
+
+.guess-item:hover .guess-img {
+  transform: scale(1.1);
+  border-color: var(--campfire-orange);
+}
+
+.guess-name {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-white);
+}
+
+.guess-result {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.guess-result.correct {
+  color: var(--energy-green);
+  background: rgba(74, 222, 128, 0.15);
+}
+
+.guess-result.wrong {
+  color: var(--danger-red);
+  background: rgba(239, 68, 68, 0.15);
 }
 
 .guess-icon {
@@ -912,7 +994,106 @@ body::after {
   pointer-events: none;
 }
 
+/* Close button positioned at modal level */
+.modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 31, 46, 0.95);
+  border: 2px solid var(--campfire-orange);
+  color: var(--text-cream);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 2001;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.modal-close:hover {
+  background: var(--campfire-orange);
+  color: var(--night-dark);
+  transform: scale(1.1);
+}
+.modal-close:active {
+  transform: scale(0.95);
+}
+
+/* Effet spécial victoire */
+.result-modal.victory .result-content {
+  animation: victoryBounce 0.8s var(--ease-bounce);
+  border-color: var(--energy-green);
+  box-shadow: 0 0 80px rgba(74, 222, 128, 0.6), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.result-modal.victory .modal-close {
+  border-color: var(--energy-green);
+}
+.result-modal.victory .modal-close:hover {
+  background: var(--energy-green);
+}
+
+/* Effet spécial défaite */
+.result-modal.defeat .result-content {
+  animation: defeatShake 0.6s var(--ease-smooth);
+  border-color: var(--danger-red);
+  box-shadow: 0 0 60px rgba(239, 68, 68, 0.5), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.result-modal.defeat .modal-close {
+  border-color: var(--danger-red);
+}
+.result-modal.defeat .modal-close:hover {
+  background: var(--danger-red);
+}
+
+@keyframes victoryBounce {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes defeatShake {
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 0;
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px) scale(0.98);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .result-content {
+  position: relative;
   background: linear-gradient(
     160deg,
     rgba(42, 49, 66, 0.98) 0%,
@@ -1012,38 +1193,29 @@ footer {
   margin-top: 3rem;
 }
 
-/* Campfire Container */
 .footer-campfire {
   position: relative;
   display: inline-block;
-  margin-bottom: 1.5rem;
 }
 
-/* Logs Stack - Multiple logs */
 .footer-campfire::before {
-  content: "🪵";
+  content: "🟫";
   position: absolute;
   bottom: -10px;
   left: 50%;
-  transform: translateX(-50%) rotate(-15deg);
-  font-size: 2rem;
-  opacity: 0.8;
-  filter: grayscale(0.3) brightness(0.7);
+  transform: translateX(-50%) rotate(-15deg) scaleX(150%) scaleY(63%);
+  font-size: 2.1rem;
 }
-
 .footer-campfire::after {
-  content: "🪵";
+  content: "🟫";
   position: absolute;
   bottom: -8px;
   left: 50%;
-  transform: translateX(-50%) rotate(10deg);
-  font-size: 2rem;
-  opacity: 0.7;
-  filter: grayscale(0.3) brightness(0.6);
-  z-index: -1;
+  transform: translateX(-50%) rotate(10deg) scaleX(150%) scaleY(63%);
+  font-size: 2.1rem;
 }
 
-/* Fire Emoji - Container */
+/* Fire */
 .footer-campfire .fire {
   position: relative;
   font-size: 3rem;
@@ -1070,7 +1242,7 @@ footer {
 }
 
 .footer-campfire .logs::before {
-  content: "🪵";
+  content: "🪵"; /* FIXED */
   position: absolute;
   left: -35px;
   transform: rotate(-25deg);
@@ -1188,6 +1360,63 @@ footer {
   }
   100% {
     transform: translateY(-50px) translateX(10px);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   PARTICLES - Confettis & Défaite
+   ============================================ */
+.confetti {
+  position: fixed;
+  font-size: 2rem;
+  top: -50px;
+  z-index: 3000;
+  animation: confettiFall 3s linear forwards;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.defeat-particle {
+  position: fixed;
+  font-size: 2rem;
+  top: 20%;
+  z-index: 3000;
+  animation: defeatFall 3s ease-in forwards;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.5));
+}
+
+@keyframes defeatFall {
+  0% {
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(40vh)
+      translateX(calc((var(--random-x, 0.5) - 0.5) * 200px)) scale(0.7)
+      rotate(180deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh)
+      translateX(calc((var(--random-x, 0.5) - 0.5) * 400px)) scale(0.3)
+      rotate(360deg);
     opacity: 0;
   }
 }
@@ -1328,4 +1557,422 @@ footer {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* --- Classic Mode local styles --- */
+/* Classic guesses container */
+/* CSS for guesses container */
+#classic-guesses {
+  display: flex;
+  flex-direction: column; /* stack rows vertically */
+  gap: 12px;
+  overflow-y: auto;
+  overflow-x: scroll; /* toujours afficher la barre horizontale */
+  padding: 12px 12px 32px 12px; /* plus de padding en bas */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 127, 63, 0.6) rgba(26, 31, 46, 0.4);
+  max-height: 580px; /* plus de hauteur */
+  border-radius: 12px; /* arrondir pour que la scrollbar reste à l'intérieur */
+  background: rgba(26, 31, 46, 0.3); /* fond léger pour délimiter la zone */
+}
+
+/* Scrollbar discret pour Chrome/Safari */
+#classic-guesses::-webkit-scrollbar {
+  width: 8px;
+  height: 10px; /* barre horizontale visible mais pas trop grande */
+}
+
+#classic-guesses::-webkit-scrollbar-track {
+  background: rgba(26, 31, 46, 0.5);
+  border-radius: 5px;
+  margin: 4px; /* marge pour ne pas toucher les bords */
+}
+
+#classic-guesses::-webkit-scrollbar-thumb {
+  background: rgba(255, 127, 63, 0.7); /* thumb bien visible */
+  border-radius: 7px;
+}
+
+#classic-guesses::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 127, 63, 0.9);
+}
+
+#classic-page .guess-row {
+  display: flex; /* flex pour remplir toute la largeur */
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+#classic-page .square {
+  flex: 1 1 0; /* s'étirer pour prendre tout l'espace disponible */
+  min-width: 80px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+}
+
+/* Scrollbar discret pour les lignes de guesses */
+#classic-page .guess-row::-webkit-scrollbar {
+  height: 6px;
+}
+#classic-page .guess-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+#classic-page .guess-row::-webkit-scrollbar-thumb {
+  background: rgba(255, 127, 63, 0.25);
+  border-radius: 3px;
+}
+#classic-page .guess-row::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 127, 63, 0.4);
+}
+
+/* Conteneur des guesses */
+.guesses-container {
+  overflow: hidden; /* clipper dans les bordures arrondies */
+  padding: 24px 24px 40px 24px; /* plus de padding en bas */
+  width: 100%; /* prendre toute la largeur */
+  max-width: 100%; /* pas de limite */
+}
+
+/* Classic mode prend toute la largeur */
+#classic-page .game-mode {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Icon stays fixed size */
+#classic-page .guess-row img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0; /* icon doesn't shrink */
+}
+/* CSS for guesses container */
+#classic-guesses {
+  display: flex;
+  flex-direction: column; /* stack rows vertically */
+  gap: 12px;
+  overflow-y: auto;
+  overflow-x: hidden; /* pas de scroll horizontal, tout doit rentrer */
+  padding: 16px 16px 36px 16px;
+  width: 100%;
+  max-height: 60vh; /* hauteur max relative à l'écran */
+  border-radius: 12px;
+  background: rgba(26, 31, 46, 0.3);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 127, 63, 0.6) rgba(26, 31, 46, 0.4);
+}
+
+/* Cacher le conteneur quand il est vide */
+#classic-guesses:empty {
+  display: none;
+}
+#classic-page .guess-row {
+  display: flex; /* flex pour remplir toute la largeur */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+#classic-page .square {
+  flex: 1 1 0; /* s'étirer pour prendre tout l'espace disponible */
+  min-width: 80px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+}
+
+#classic-page .green {
+  background: #1e7a1e;
+  color: white;
+}
+#classic-page .yellow {
+  background: #d4b100;
+  color: #111;
+}
+#classic-page .red {
+  background: #8b0000;
+  color: white;
+}
+
+/* Input area - full width row */
+#classic-page .input-area {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  position: relative; /* suggestions appear below */
+}
+/* input fills remaining space, button at right */
+#classic-page .input-area #classic-input {
+  flex: 1 1 auto;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+#classic-page .input-area {
+  opacity: 0.6;
+}
+
+/* splash-mode suggestion markup used in your site: plain .suggestion-item with no images */
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #efefef;
+  font-size: 15px;
+}
+.suggestion-item:hover {
+  background: #f6f8fb;
+}
+
+/* small screens: stack button under input */
+@media (max-width: 540px) {
+  #classic-page .input-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #classic-page .input-area {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+#classic-page .guesses-container {
+  margin-top: 12px;
+}
+#classic-page .lives {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Lives display for both modes */
+.lives {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.lives strong {
+  color: var(--campfire-orange);
+  font-size: 1.3rem;
+}
+
+#splash-lives-hearts,
+#classic-lives-hearts,
+#food-lives-hearts {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+#food-guesses {
+  display: flex;
+  flex-direction: column; /* stack rows vertically */
+  gap: 8px;
+}
+#food-page .guess-row {
+  display: flex; /* squares in a row */
+  align-items: center;
+  gap: 8px;
+}
+#food-page .square {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  padding: 6px;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+/* Icon stays fixed size */
+#food-page .guess-row img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0; /* icon doesn't shrink */
+}
+/* CSS for guesses container */
+#food-guesses {
+  display: flex;
+  flex-direction: column; /* stack rows vertically */
+  gap: 8px;
+}
+#food-page .guess-row {
+  display: flex; /* squares in a row */
+  align-items: center;
+  gap: 8px;
+}
+#food-page .square {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  padding: 6px;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+#food-page .green {
+  background: #1e7a1e;
+  color: white;
+}
+#food-page .yellow {
+  background: #d4b100;
+  color: #111;
+}
+#food-page .red {
+  background: #8b0000;
+  color: white;
+}
+
+/* Input area - full width row */
+#food-page .input-area {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  position: relative; /* suggestions appear below */
+}
+/* input fills remaining space, button at right */
+#food-page .input-area #food-input {
+  flex: 1 1 auto;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+#food-page .input-area {
+  opacity: 0.6;
+}
+/* small screens: stack button under input */
+@media (max-width: 540px) {
+  #food-page .input-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #food-page .input-area {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+#food-page .guesses-container {
+  margin-top: 12px;
+}
+#food-page .lives {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* ============================================
+   DETECTIVE MODE - Clue styling
+   ============================================ */
+.clue-container {
+  background: linear-gradient(
+    160deg,
+    rgba(42, 49, 66, 0.95) 0%,
+    rgba(26, 31, 46, 0.95) 100%
+  );
+  border: 3px solid var(--campfire-orange);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--campfire-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.clue-container::before {
+  content: "🔍";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 4rem;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.clue-container h3 {
+  font-family: "Baloo 2", cursive;
+  font-size: 1.3rem;
+  color: var(--campfire-orange);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clue-container h3::before {
+}
+
+.detective-clue {
+  background: rgba(26, 31, 46, 0.8);
+  border: 2px solid rgba(196, 163, 90, 0.2);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-cream);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  overflow: hidden;
+}
+
+.detective-clue .hidden-char {
+  display: inline-block;
+  width: 0.8em;
+  height: 1.2em;
+  background: rgba(255, 127, 63, 0.3);
+  border-radius: 4px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.detective-clue .revealed-char {
+  color: var(--energy-green);
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
 }

@@ -1,0 +1,408 @@
+{
+  "Antidote": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Antidote",
+    "Weight": 2.5,
+    "Effect": ["Healing", "Status Cleanse"],
+    "Uses": 3,
+    "Notes": "Removes Heat 10 Heat. Removes Poison 35 Poison. Removes Spores 35 Spores. "
+  },
+  "Balloon": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Balloon",
+    "Weight": -5,
+    "Effect": ["Mobility", "Gravity Modifier"],
+    "Uses": 1,
+    "Notes": "Lowers gravity by 18% per Balloon for 2 minutes or when 100m has passed. Using 6 Balloons at the same time allows for limited flight. Can be stacked with itself and Balloon Bunches. Passively removes Weight 5 Weight when held, in inventory, or in a Backpack Backpack. Dropped balloons float away!"
+  },
+  "Balloon Bunch": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Balloon Bunch",
+    "Weight": -15,
+    "Effect": ["Mobility", "Gravity Modifier"],
+    "Uses": 1,
+    "Notes": "Lowers gravity by 54% per Balloon Bunch for 2 minutes or when 100m has passed. Using 2 Balloon Bunches at the same time allows for limited flight. Can be stacked with itself and Balloons. Passively removes Weight 15 Weight when held, in inventory, or in a Backpack Backpack. Dropped balloons float away!"
+  },
+  "Bandages": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Bandages",
+    "Weight": 2.5,
+    "Effect": ["Healing"],
+    "Uses": 1,
+    "Notes": "Removes Injury 30 Injury. Takes 4 seconds to use. "
+  },
+  "Blowgun": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Blowgun",
+    "Weight": 2.5,
+    "Effect": ["Offense", "Status Cleanse"],
+    "Uses": 1,
+    "Notes": "Shoots a single dart with these effects on target scout. Clears all status effects except Curse Curse. Inflicts Drowsy 120 Drowsy if uncooked. Inflicts Heat 150 Heat if Cooked. Cannot spawn in solo play. "
+  },
+  "First Aid Kit": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "First Aid Kit",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse"],
+    "Uses": 1,
+    "Notes": "Removes Poison 100 Poison. Removes Spores 100 Spores. Removes Injury 100 Injury. Takes 5 seconds to use. "
+  },
+  "Flare": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Flare",
+    "Weight": 0,
+    "Effect": ["Utility", "Signaling"],
+    "Uses": 1,
+    "Notes": "Can be lit to display a tall column of colourful smoke matching the colour of the player's scout. Summons the rescue helicopter if used at the Peak (biome). "
+  },
+  "Heat Pack": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Heat Pack",
+    "Weight": 0,
+    "Effect": ["Healing", "Survival"],
+    "Uses": 1,
+    "Notes": "Removes Cold 360 Cold over 60 seconds. "
+  },
+  "Remedy Fungus": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Remedy Fungus",
+    "Weight": 2.5,
+    "Effect": ["Healing", "Status Cleanse", "Area Effect"],
+    "Uses": 1,
+    "Notes": "Creates a cloud of healing smoke when dropped. Removes Injury 45 Injury, Poison 27. 5 Poison and Spores 27. 5 Spores in total to Scouts in the cloud's range. Injury 17. 5 Injury removed immediately after explosion. Injury 27. 5 Injury, Poison 27. 5 Poison and Spores 27. 5 Spores removed within 11 seconds (-2. 5/s). "
+  },
+  "Rescue Claw": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Rescue Claw",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": 1,
+    "Notes": "Pulls the player's scout towards terrain, or other scouts towards the player's scout, with a range of 30m when aiming above the horizon, and 40m when aiming below. Part of the Disaster Response Badge"
+  },
+  "Scroll": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Scroll",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": 1,
+    "Notes": "Can be opened to reveal a torn page. "
+  },
+  "Sunscreen": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Sunscreen",
+    "Weight": 2.5,
+    "Effect": ["Survival"],
+    "Uses": 3,
+    "Notes": "Has 3 uses. Sprays a cloud of sunscreen that gives temporary sun protection for 90 seconds. Protection is given to any player that enters the cloud. "
+  },
+  "Bounce Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Bounce Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Stamina"],
+    "Uses": 1,
+    "Notes": "Creates a bouncy platform aligned with the terrain it was thrown at. Bouncing on it regens a portion of stamina each bounce. Can be used for the Mycoacrobatics Badge. "
+  },
+  "Chain Launcher": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Chain Launcher",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": 1,
+    "Notes": "Creates a length of chain between two points that can be climbed on like a vine. The chain originates from the point where the user fired the launcher. The chain launcher cannot fire a chain upwards. "
+  },
+  "Checkpoint Flag": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Checkpoint Flag",
+    "Weight": 2.5,
+    "Effect": ["Survival", "Utility"],
+    "Uses": 1,
+    "Notes": "Creates a single-use respawn checkpoint for the Scout who placed it, saving & restoring all statuses when it was placed. "
+  },
+  "Cloud Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Cloud Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1,
+    "Notes": "Creates a platform when it is thrown at a wall. Creates a platform at the apex of a throw mid-air. "
+  },
+  "Magic Bean": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Magic Bean",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1,
+    "Notes": "After 3 seconds from being dropped or thrown it will begin to grow a vine up to 10 metres tall if unobstructed. "
+  },
+  "Piton": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Piton",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Stamina"],
+    "Uses": 1,
+    "Notes": "Attaches to a climbable surface to provide a point for scouts to grab and rest to regenerate stamina. Limited to 1 scout at a time. Items from the main inventory can be used while hanging on a placed piton. "
+  },
+  "Portable Stove": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Portable Stove",
+    "Weight": 5,
+    "Effect": ["Utility", "Survival"],
+    "Uses": 1,
+    "Notes": "Used to cook items. Removes Cold 5 Cold per second from Scouts within 2 metres. Lasts for 60 seconds after being placed. "
+  },
+  "Rope Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Rope Cannon",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1,
+    "Notes": "Shoots a harpoon that will drop 7. 5 metres of rope on contact with a compatible surface. "
+  },
+  "Rope Spool": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Rope Spool",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": "3+",
+    "Notes": "Creates lengths of climbable rope (up to 10 metres) that can be attached to any climbable surface. Rope is affected by gravity. Each spool contains 12. 5 metres of rope. "
+  },
+  "Scout Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Scout Cannon",
+    "Weight": 10,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": "Infinite",
+    "Notes": "Can be aimed vertically. When used, places down an infinite-use cannon locked into its adjusted angle and position. After a short delay after the fuse has been lit, the object or Scout inside the cannon is launched out. "
+  },
+  "Shelf Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Shelf Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1,
+    "Notes": "Creates a platform when it is thrown at a wall. "
+  },
+  "Backpack": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Backpack",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "None",
+    "Notes": "Found at the crash site and campfires. Can be used to carry 4 additional items. "
+  },
+  "Bing Bong": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Bing Bong",
+    "Weight": 5,
+    "Effect": ["Utility", "Misc"],
+    "Uses": "Infinite",
+    "Notes": "Can be used for the Bing Bong Badge. Used to talk to streamers on occasion, feature deleted from the game in June. Player can 'ask' Bing Bong 'yes or no' questions"
+  },
+  "Binoculars": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Binoculars",
+    "Weight": 0,
+    "Effect": ["Utility", "Navigation"],
+    "Uses": "None",
+    "Notes": "Can be used for the Astronomy Badge. Used to see farther. "
+  },
+  "Bugle": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Bugle",
+    "Weight": 0,
+    "Effect": ["Misc"],
+    "Uses": "Infinite",
+    "Notes": "Plays a musical note when used. Can be used for the Animal Serenading Badge. "
+  },
+  "Compass": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Compass",
+    "Weight": 0,
+    "Effect": ["Navigation"],
+    "Uses": "None",
+    "Notes": "Points towards the Peak (biome). "
+  },
+  "Flying Disc": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Flying Disc",
+    "Weight": 0,
+    "Effect": ["Misc", "Offense"],
+    "Uses": "Infinite",
+    "Notes": "Can be used for the Ultimate Badge. Can be thrown at other scouts to bonk them. "
+  },
+  "Guidebook": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Guidebook",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "Infinite",
+    "Notes": "Teaches player how to play the game. "
+  },
+  "Lantern": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Lantern",
+    "Weight": 5,
+    "Effect": ["Survival", "Area Effect"],
+    "Uses": "Over Time",
+    "Notes": "Removes Cold 150 Cold over 60 seconds from nearby players. Can be extinguished to preserve the remaining fuel. Will stay lit while stowed in a dropped Backpack. "
+  },
+  "Parasol": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Parasol",
+    "Weight": 2.5,
+    "Effect": ["Survival", "Mobility"],
+    "Uses": "Infinite",
+    "Notes": "Protects the player from the harsh sunlight in the Mesa.  Slows the player's falling speed while in the air. "
+  },
+  "Pirate's Compass": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Pirate's Compass",
+    "Weight": 0,
+    "Effect": ["Navigation"],
+    "Uses": "None",
+    "Notes": "Points to the nearest unopened luggage or unused Ancient Statue. "
+  },
+  "Torch": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Torch",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "None",
+    "Notes": "Found only inside the Tomb. Provides temporary light source. "
+  },
+  "Ancient Idol": {
+    "Type": "Misc",
+    "Rarity": "Mystical",
+    "icon": "Ancient Idol",
+    "Weight": 40,
+    "Effect": ["Survival", "Status Immunity"],
+    "Uses": "Infinite",
+    "Notes": "Found exclusively inside the Tomb. Grants complete invincibility from any damage or negative status effects while actively held. The scout can still receive knockback from damaging sources like Dynamite Dynamite, which can cause falling down the mountain and losing progress. Prevents consumption of Bonus stamina Bonus stamina while actively held. Can be thrown into the lava of The Kiln to receive the 24 Karat Badge. "
+  },
+  "Anti-Rope Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Mystical",
+    "icon": "Anti-Rope Cannon",
+    "Weight": 0,
+    "Effect": ["Mobility"],
+    "Uses": 1,
+    "Notes": "Shoots a harpoon that will deploy a length of gravity defying anti-rope on contact with a compatible surface. A dropped anti-rope Cannon can float away!"
+  },
+  "Anti-Rope Spool": {
+    "Type": "Deployable",
+    "Rarity": "Mystical",
+    "icon": "Anti-Rope Spool",
+    "Weight": -2.5,
+    "Effect": ["Mobility"],
+    "Uses": "3+",
+    "Notes": "Creates lengths of climbable anti-rope (up to 10 metres) that can be attached to any climbable surface. Anti-rope will defy gravity and float upwards. Each spool contains 12. 5 metres of anti-rope. A dropped spool of anti-rope will float upwards!"
+  },
+  "Bugle of Friendship": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Bugle of Friendship",
+    "Weight": 2.5,
+    "Effect": ["Support", "Stamina", "Misc"],
+    "Uses": "Over Time",
+    "Notes": "Plays a musical note when used. Gives scouts in a large radius infinite Stamina while being played, up to a total of 7. 5 seconds. Can be used for the Animal Serenading Badge. Cannot spawn in solo play. "
+ 
+  },
+  "Cure-All": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Cure-All",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse", "Support"],
+    "Uses": 3,
+    "Notes": "Has 3 uses. Removes Hunger 20 Hunger, Poison 35 Poison, Spores 35 Spores, Injury 35 Injury, Drowsy 35 Drowsy, Cold 35 Cold, Heat 35 Heat, Thorns 25 Thorns, and Curse 5 Curse. Cooking will cause the item to explode but will instantly give the player one use. Dropping the Cure-All causes it to shatter. "
+  },
+  "Cursed Skull": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Cursed Skull",
+    "Weight": 5,
+    "Effect": ["Offense", "Support", "Status Cleanse"],
+    "Uses": 1,
+    "Notes": "Use instantly kills the Scout holding it and grants other Scouts Bonus stamina 50 Bonus stamina and cleanses all negative status effects aside from Curse Curse. Can only be found in Ancient Luggage. Cannot spawn in solo play. "
+  },
+  "Faerie Lantern": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Faerie Lantern",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse", "Area Effect"],
+    "Uses": "Over Time",
+    "Notes": "Removes Heat 75 Heat, Cold 150 Cold, Poison 75 Poison, Spores 75 Spores, Drowsy 150 Drowsy and Injury 75 Injury over 30 seconds from nearby players. Can be extinguished to preserve the remaining fuel. Will stay lit while stowed in a dropped Backpack. "
+  },
+  "Pandora's Lunchbox": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Pandora's Lunchbox",
+    "Weight": 2.5,
+    "Effect": ["Status Cleanse", "Randomizer"],
+    "Uses": 3,
+    "Notes": "Has 3 uses. Clears all status then randomizes Hunger Hunger, Bonus stamina Bonus stamina, Injury Injury, Poison Poison, Spores Spores, Cold Cold, Heat Heat, and Drowsy Drowsy. Cooking will cause the box to explode but will instantly inflict one use on the player. "
+  },
+  "Scout Effigy": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Scout Effigy",
+    "Weight": 5,
+    "Effect": ["Support", "Revival"],
+    "Uses": 1,
+    "Notes": "Used to revive a dead scout at the target location. Cannot spawn in solo play. "
+  },
+  "Scoutmaster's Bugle": {
+    "Type": "Misc",
+    "Rarity": "Mystical",
+    "icon": "Scoutmaster's Bugle",
+    "Weight": 2.5,
+    "Effect": ["Support", "Summoning"],
+    "Uses": 1,
+    "Notes": "User and nearby scouts gain Bonus stamina 100 Bonus stamina. Summons the Scoutmaster for two minutes and marks the user as his target. Much rarer then other mystical items. "
+  },
+  "The Book of Bones": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "The Book of Bones",
+    "Weight": 2.5,
+    "Effect": ["Transformation", "Status Modification"],
+    "Uses": 1,
+    "Notes": "User will become a living skeleton on self use. Using on another player's skeleton will cause them to rise as a living skeleton. Becoming a skeleton will deal Curse 25 Curse on use. Living skeleton are impervious to all afflictions other than Injury Injury and Curse Curse. Any Injury Injury taken while in skeleton form is multiplied by 8, instantly killing the player if max stamina is overtaken. Using while already a skeleton will turn you back into a normal scout, removing Curse 25 Curse. Cooking the book will cause it to remove Curse 25 Curse instead of dealing it upon use. "
+  }
+}

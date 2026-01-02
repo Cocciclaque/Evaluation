@@ -1,0 +1,511 @@
+{
+  "Half-Coconut": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": ["Shore","Tropics","Mesa"],
+    "Type": "Berry"
+  },
+  "Red Crispberry": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore","Tropics"],
+    "Type": "Berry"
+  },
+  "Yellow Crispberry": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": 15,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore","Tropics"],
+    "Type": "Berry"
+  },
+  "Green Crispberry": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": 10,
+    "Location": ["Shore","Tropics"],
+    "Type": "Berry"
+  },
+  "Honeycomb": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 50,
+    "Bonus Stamina Cooked": 75,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics","Roots"],
+    "Type": "Animal"
+  },
+  "Scorchberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Purple Kingberry": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": 35,
+    "Bonus Stamina Cooked": 52.5,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Yellow Kingberry": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 5,
+    "Poisonous": 25,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Green Kingberry": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 5,
+    "Poisonous": 5,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Yellow Berrynana": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Pink Berrynana": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": 15,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Blue Berrynana": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Brown Berrynana": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": 15,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Yellow Clusterberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": 15,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Red Clusterberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Black Clusterberry": {
+    "Hunger": -20,
+    "Hunged Cooked": -40,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Berry"
+  },
+  "Orange Winterberry": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Alpine"],
+    "Type": "Berry"
+  },
+  "Yellow Winterberry": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": 35,
+    "Bonus Stamina Cooked": 52.5,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Alpine","Mesa"],
+    "Type": "Berry"
+  },
+  "Red Prickleberry": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Mesa"],
+    "Type": "Berry"
+  },
+  "Gold Prickleberry": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Mesa"],
+    "Type": "Berry"
+  },
+  "Medicinal Root": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": -25,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Vegetable"
+  },
+  "Mandrake": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Vegetable"
+  },
+  "Marshmallow": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Campfires"],
+    "Type": "Packaged"
+  },
+  "Hot Dog": {
+    "Hunger": -30,
+    "Hunged Cooked": -60,
+    "Bonus Stamina": 20,
+    "Bonus Stamina Cooked": 30,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Campfires"],
+    "Type": "Packaged"
+  },
+  "Egg": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": ["Caldera"],
+    "Type": "Animal"
+  },
+  "Cooked Bird": {
+    "Hunger": null,
+    "Hunged Cooked": -40,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 10,
+    "Poisonous": null,
+    "Location": ["Caldera"],
+    "Type": "Animal"
+  },
+  "Tick": {
+    "Hunger": -20,
+    "Hunged Cooked": -40,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Tropics"],
+    "Type": "Animal"
+  },
+  "Scorpion": {
+    "Hunger": null,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Mesa"],
+    "Type": "Animal"
+  },
+  "Napberry": {
+    "Hunger": -100,
+    "Hunged Cooked": -200,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Alpine"],
+    "Type": "Berry"
+  },
+   "Cure-All": {
+    "Hunger": -10,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": null,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": ["Ancient Statue", "Ancient Luggage"],
+    "Type": "Packaged"
+  },
+  "Pandora's Lunchbox": {
+    "Hunger": null,
+    "Hunged Cooked": null,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Ancient Statue", "Ancient Luggage"],
+    "Type": "Packaged"
+  },
+  "Airline Food": {
+    "Hunger": -40,
+    "Hunged Cooked": -80,
+    "Bonus Stamina": 40,
+    "Bonus Stamina Cooked": 60,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Big Lollipop": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Energy Drink": {
+    "Hunger": null,
+    "Hunged Cooked": null,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Fortified Milk": {
+    "Hunger": -5,
+    "Hunged Cooked": -5,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": null,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Granola Bar": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": 20,
+    "Bonus Stamina Cooked": 30,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Scout Cookies": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": 15,
+    "Weight": 5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Sports Drink": {
+    "Hunger": null,
+    "Hunged Cooked": null,
+    "Bonus Stamina": 30,
+    "Bonus Stamina Cooked": 45,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+  "Trail Mix": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 10,
+    "Bonus Stamina Cooked": 15,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": [],
+    "Type": "Packaged"
+  },
+"Bugle Shroom": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Poisonous Bugle Shroom": {
+    "Hunger": -15,
+    "Hunged Cooked": -30,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": 20,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Button Shroom": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Poisonous Button Shroom": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": 30,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Chubby Shroom": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Cluster Shroom": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },
+  "Poisonous Cluster Shroom": {
+    "Hunger": -5,
+    "Hunged Cooked": -10,
+    "Bonus Stamina": null,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": 40,
+    "Location": ["Shore", "Tropics", "Mesa", "Roots"],
+    "Type": "Mushroom"
+  },  "Red Shroomberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 5,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Mushroom"
+  },
+  "Yellow Shroomberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 5,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Mushroom"
+  },
+  "Green Shroomberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 5,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Mushroom"
+  },
+  "Blue Shroomberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 5,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Mushroom"
+  },
+  "Purple Shroomberry": {
+    "Hunger": -10,
+    "Hunged Cooked": -20,
+    "Bonus Stamina": 5,
+    "Bonus Stamina Cooked": 10,
+    "Weight": 2.5,
+    "Poisonous": null,
+    "Location": ["Roots"],
+    "Type": "Mushroom"
+  }
+}

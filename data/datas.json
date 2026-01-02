@@ -1,0 +1,362 @@
+{
+  "Antidote": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Antidote",
+    "Weight": 2.5,
+    "Effect": ["Healing", "Status Cleanse"],
+    "Uses": 3
+  },
+  "Balloon": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Balloon",
+    "Weight": -5,
+    "Effect": ["Mobility", "Gravity Modifier"],
+    "Uses": 1
+  },
+  "Balloon Bunch": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Balloon Bunch",
+    "Weight": -15,
+    "Effect": ["Mobility", "Gravity Modifier"],
+    "Uses": 1
+  },
+  "Bandages": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Bandages",
+    "Weight": 2.5,
+    "Effect": ["Healing"],
+    "Uses": 1
+  },
+  "Blowgun": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Blowgun",
+    "Weight": 2.5,
+    "Effect": ["Offense", "Status Cleanse"],
+    "Uses": 1
+  },
+  "First Aid Kit": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "First Aid Kit",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse"],
+    "Uses": 1
+  },
+  "Flare": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Flare",
+    "Weight": 0,
+    "Effect": ["Utility", "Signaling"],
+    "Uses": 1
+  },
+  "Heat Pack": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Heat Pack",
+    "Weight": 0,
+    "Effect": ["Healing", "Survival"],
+    "Uses": 1
+  },
+  "Remedy Fungus": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Remedy Fungus",
+    "Weight": 2.5,
+    "Effect": ["Healing", "Status Cleanse", "Area Effect"],
+    "Uses": 1
+  },
+  "Rescue Claw": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Rescue Claw",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": 1
+  },
+  "Scroll": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Scroll",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": 1
+  },
+  "Sunscreen": {
+    "Type": "Consumable",
+    "Rarity": "Standard",
+    "icon": "Sunscreen",
+    "Weight": 2.5,
+    "Effect": ["Survival"],
+    "Uses": 3
+  },
+  "Bounce Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Bounce Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Stamina"],
+    "Uses": 1
+  },
+  "Chain Launcher": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Chain Launcher",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": 1
+  },
+  "Checkpoint Flag": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Checkpoint Flag",
+    "Weight": 2.5,
+    "Effect": ["Survival", "Utility"],
+    "Uses": 1
+  },
+  "Cloud Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Cloud Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1
+  },
+  "Magic Bean": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Magic Bean",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1
+  },
+  "Piton": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Piton",
+    "Weight": 2.5,
+    "Effect": ["Mobility", "Stamina"],
+    "Uses": 1
+  },
+  "Portable Stove": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Portable Stove",
+    "Weight": 5,
+    "Effect": ["Utility", "Survival"],
+    "Uses": 1
+  },
+  "Rope Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Rope Cannon",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1
+  },
+  "Rope Spool": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Rope Spool",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": "3+"
+  },
+  "Scout Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Scout Cannon",
+    "Weight": 10,
+    "Effect": ["Mobility", "Utility"],
+    "Uses": "Infinite"
+  },
+  "Shelf Fungus": {
+    "Type": "Deployable",
+    "Rarity": "Standard",
+    "icon": "Shelf Fungus",
+    "Weight": 2.5,
+    "Effect": ["Mobility"],
+    "Uses": 1
+  },
+  "Backpack": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Backpack",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "None"
+  },
+  "Bing Bong": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Bing Bong",
+    "Weight": 5,
+    "Effect": ["Utility", "Misc"],
+    "Uses": "Infinite"
+  },
+  "Binoculars": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Binoculars",
+    "Weight": 0,
+    "Effect": ["Utility", "Navigation"],
+    "Uses": "None"
+  },
+  "Bugle": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Bugle",
+    "Weight": 0,
+    "Effect": ["Misc"],
+    "Uses": "Infinite"
+  },
+  "Compass": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Compass",
+    "Weight": 0,
+    "Effect": ["Navigation"],
+    "Uses": "None"
+  },
+  "Flying Disc": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Flying Disc",
+    "Weight": 0,
+    "Effect": ["Misc", "Offense"],
+    "Uses": "Infinite"
+  },
+  "Guidebook": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Guidebook",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "Infinite"
+  },
+  "Lantern": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Lantern",
+    "Weight": 5,
+    "Effect": ["Survival", "Area Effect"],
+    "Uses": "Over Time"
+  },
+  "Parasol": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Parasol",
+    "Weight": 2.5,
+    "Effect": ["Survival", "Mobility"],
+    "Uses": "Infinite"
+  },
+  "Pirate's Compass": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Pirate's Compass",
+    "Weight": 0,
+    "Effect": ["Navigation"],
+    "Uses": "None"
+  },
+  "Torch": {
+    "Type": "Misc",
+    "Rarity": "Standard",
+    "icon": "Torch",
+    "Weight": 0,
+    "Effect": ["Utility"],
+    "Uses": "None"
+  },
+  "Ancient Idol": {
+    "Type": "Misc",
+    "Rarity": "Mystical",
+    "icon": "Ancient Idol",
+    "Weight": 40,
+    "Effect": ["Survival", "Status Immunity"],
+    "Uses": "Infinite"
+  },
+  "Anti-Rope Cannon": {
+    "Type": "Deployable",
+    "Rarity": "Mystical",
+    "icon": "Anti-Rope Cannon",
+    "Weight": 0,
+    "Effect": ["Mobility"],
+    "Uses": 1
+  },
+  "Anti-Rope Spool": {
+    "Type": "Deployable",
+    "Rarity": "Mystical",
+    "icon": "Anti-Rope Spool",
+    "Weight": -2.5,
+    "Effect": ["Mobility"],
+    "Uses": "3+"
+  },
+  "Bugle of Friendship": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Bugle of Friendship",
+    "Weight": 2.5,
+    "Effect": ["Support", "Stamina", "Misc"],
+    "Uses": "Over Time"
+  },
+  "Cure-All": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Cure-All",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse", "Support"],
+    "Uses": 3
+  },
+  "Cursed Skull": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Cursed Skull",
+    "Weight": 5,
+    "Effect": ["Offense", "Support", "Status Cleanse"],
+    "Uses": 1
+  },
+  "Faerie Lantern": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Faerie Lantern",
+    "Weight": 5,
+    "Effect": ["Healing", "Status Cleanse", "Area Effect"],
+    "Uses": "Over Time"
+  },
+  "Pandora's Lunchbox": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Pandora's Lunchbox",
+    "Weight": 2.5,
+    "Effect": ["Status Cleanse", "Randomizer"],
+    "Uses": 3
+  },
+  "Scout Effigy": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "Scout Effigy",
+    "Weight": 5,
+    "Effect": ["Support", "Revival"],
+    "Uses": 1
+  },
+  "Scoutmaster's Bugle": {
+    "Type": "Misc",
+    "Rarity": "Mystical",
+    "icon": "Scoutmaster's Bugle",
+    "Weight": 2.5,
+    "Effect": ["Support", "Summoning"],
+    "Uses": 1
+  },
+  "The Book of Bones": {
+    "Type": "Consumable",
+    "Rarity": "Mystical",
+    "icon": "The Book of Bones",
+    "Weight": 2.5,
+    "Effect": ["Transformation", "Status Modification"],
+    "Uses": 1
+  }
+}
